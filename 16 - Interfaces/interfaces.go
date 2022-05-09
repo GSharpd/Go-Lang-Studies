@@ -1,42 +1,42 @@
-package main
+package shapes
 
 import (
 	"fmt"
 	"math"
 )
 
-type shape interface {
-	area() float64
+type Shape interface {
+	Area() float64
 }
 
-type rectangle struct {
-	height, width float64
+type Rectangle struct {
+	Height, Width float64
 }
 
-func (r rectangle) area() float64 {
-	return r.height * r.width
+func (r Rectangle) Area() float64 {
+	return r.Height * r.Width
 }
 
-type circle struct {
-	radius float64
+type Circle struct {
+	Radius float64
 }
 
-func (c circle) area() float64 {
-	return math.Pow(c.radius, 2) * math.Pi
+func (c Circle) Area() float64 {
+	return math.Pow(c.Radius, 2) * math.Pi
 }
 
-func writeArea(s shape) {
-	fmt.Printf("The shapes area is: %0.2f\n", s.area())
+func WriteArea(s Shape) {
+	fmt.Printf("The shapes area is: %0.2f\n", s.Area())
 }
 
-func main() {
-	fmt.Println("Interfaces")
-	rec := rectangle{10, 15}
-	writeArea(rec)
+// func main() {
+// 	fmt.Println("Interfaces")
+// 	rec := Rectangle{10, 15}
+// 	WriteArea(rec)
 
-	circ := circle{10}
-	writeArea(circ)
+// 	circ := Circle{10}
+// 	WriteArea(circ)
 
-	// Interface implementation is implicit
-	// if a struct implements the method signature defined in the interface, it implicitly implements the interface
-}
+// 	Interface implementation is implicit
+// 	if a struct implements the method signature defined in the interface, it implicitly implements the interface
+// }
